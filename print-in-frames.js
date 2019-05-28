@@ -1,11 +1,14 @@
 function printInFrame(list) {
+    //list is a string, a sentence or phrase.
     var list = list.split(' ');
+    
     var longest = longestStr(list).length;
-    var border = repeat('*', longest);
 
+    var border = repeat('*', longest + 3); // added +3
     console.log(border);
+
     for (word of list) {
-        console.log('* ' + word + repeat(' ', longest - word.length + 1) + '*');
+        console.log('* ' + word + repeat(' ', longest - word.length ) + '*'); //removed -1 after word.length
     }
     console.log(border);
 }
@@ -22,13 +25,16 @@ function repeat(str, times) {
 function longestStr(list) {
     var longest = list[0];
     for (str of list) {
-        longest = str;
+        //added the conditional that is comparing lengths, not the word 
+        if (str.length > longest.length) {
+            longest = str;
+        }
     }
     return longest;
 }
 
-  // Test driver code, do not modify
-    printInFrame('May the force be with you');
-    printInFrame('Here\'s Johnny!');
-    printInFrame('Supercalifragalisticexpialadocious');
-    printInFrame('Lost, like tears in the rain');
+// Test driver code, do not modify
+printInFrame('May the force be with you');
+printInFrame('Here\'s Johnny!');
+printInFrame('Supercalifragalisticexpialadocious');
+printInFrame('Lost, like tears in the rain');
