@@ -27,3 +27,10 @@ function doStuff(){
 console.log('3', b);
 doStuff();
 console.log('4', b);
+
+// 3 3
+// 1 undefined
+// 2 5
+// 4 3
+
+
